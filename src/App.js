@@ -6,8 +6,10 @@ import Home from "./components/Home";
 function App() {
   return (
     <div className="App">
-      <Title name="John Doe" />
-      <Description />
+      <Title
+        title="
+PRODUITS ÉCO-RESPONSABLE LA BRUT"
+      />
       <Home />
     </div>
   );
