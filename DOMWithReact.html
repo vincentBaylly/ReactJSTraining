@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>React Local</title>
+    <!-- On ajoute la librairie React depuis le site unpkg -->
+    <!-- le premier fichier permet de recuperer les objet de l'API de React -->
+    <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+    <!-- le deuxieme fichier permet de recuperer de recuperer les objet qui permettent le rendu dans le DOM -->
+    <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <script type="text/javascript">
+      const rootElement = document.getElementById("root");
+
+      //On peut creer un element comme avec le javascript en React
+      //const element = document.createElement("div");
+      const element = React.createElement(
+        "div",
+        {
+          //les attibuts de notre element sont directement
+          //declares dans la fonction createElement de React
+          //element.textContent = "Hello World";
+          //element.className = "container";
+          className: "container",
+          //le texte est considere comme une enfant de l element
+          //que l on est en train de creer.
+          children: "Hello World",
+          //cette propriete est un tableau
+          //on pourrait mettre plusieurs enfants ainsi
+          //children: ["Hello World", "GoodBye", "<div>ma sous div<div>"]
+          //Chacun de ces elements peuvent egalement etre des elements React
+          //children:React.createElement('span', Hello, World)
+        }
+        //on pourrait mettre les mettre les enfants de notre element
+        //dans les arguments suivants egalement
+        //, Hello world, GoodBye, <div>ma sous div</div>
+      );
+      //Quelles sont les differences avec un HTMLElement ?
+      console.log(element);
+      ReactDOM.render(element, rootElement);
+    </script>
+  </body>
+</html>
