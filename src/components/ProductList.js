@@ -47,7 +47,13 @@ function ProductList() {
               <p>{itemInfo.description}</p>
             </div>
           </div>
-          <div className="rightContainer">{itemInfo.price} EUR</div>
+          <div className="rightContainer">
+            {itemInfo.price} EUR
+            <div
+              onClick={this.handleClickFavorite}
+              className={isFavorite ? "isFavorite" : "notFavorite"}
+            ></div>
+          </div>
         </div>
       ))}
     </div>
