@@ -5,7 +5,7 @@ import Description from "./components/Description";
 function App() {
   return (
     <div className="App">
-      <Title />
+      <Title name="John Doe" />
       <Description />
       <Description />
       <Description />
