@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import ProductItem from "./ProductItem";
+import ProductDetails from "./ProductDetails";
 
 const productItems = [
   {
@@ -38,13 +39,35 @@ const productItems = [
   },
 ];
 
+function getProductDescription(productId) {
+  return productItems[productId];
+}
+
 function ProductList() {
+  const [productToShow, setProductToShow] = useState(0);
+  const showProductDescription = (i) => {
+    setProductToShow(getProductDescription(i));
+  };
+
   return (
-    <div className="productList">
-      {productItems.map((itemInfo) => (
-        <ProductItem productItem={itemInfo} key={itemInfo.id} />
-      ))}
-    </div>
+    <>
+      <div className="productList">
+        {productItems.map((itemInfo) => (
+          <ProductItem
+            productItem={itemInfo}
+            key={itemInfo.id}
+            showProductDescription={showProductDescription}
+          />
+        ))}
+      </div>
+      {productToShow ? (
+        <div>
+          <ProductDetails productDetail={productToShow} />
+        </div>
+      ) : (
+        <></>
+      )}
+    </>
   );
 }
 
