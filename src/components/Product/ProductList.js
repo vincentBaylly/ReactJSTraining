@@ -2,24 +2,7 @@ import React, { useState, useEffect } from "react";
 import ProductItem from "./ProductItem";
 import ProductDetails from "./ProductDetails";
 import Comment from "../Comment/Comment";
-import firebase from "../../firebase";
-import { ref, child, get } from "firebase/database";
-
-function getProductDescription(productItems, productId) {
-  return productItems[productId];
-}
-
-function mapFireBaseProduct(firebaseitem) {
-  return {
-    id: firebaseitem.id,
-    itemName: firebaseitem.itemName,
-    description: firebaseitem.description,
-    price: firebaseitem.price,
-    img: firebaseitem.img,
-    isFavorite: firebaseitem.isFavorite,
-    comments: [],
-  };
-}
+import { getProducts, getProductDescription } from "../../helper/db.js";
 
 function ProductList() {
   const [productToShow, setProductToShow] = useState(0);
@@ -29,22 +12,13 @@ function ProductList() {
   };
 
   useEffect(() => {
-    const dbRef = ref(firebase);
-    get(child(dbRef, "product"))
-      .then((snapshot) => {
-        if (snapshot.exists()) {
-          let newState = [];
-          snapshot.forEach((snap) => {
-            newState.push(mapFireBaseProduct(snap.val()));
-          });
-          setproductItems(newState);
-        } else {
-          console.log("No data available");
-        }
-      })
-      .catch((error) => {
-        console.error(error);
+    const fetchData = async () => {
+      getProducts().then((productItems) => {
+        setproductItems(productItems);
       });
+    };
+
+    fetchData();
   }, []);
 
   return (
