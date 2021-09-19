@@ -1,10 +1,11 @@
 import React from "react";
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import "./App.css";
-import Title from "./components/Title";
-import Home from "./components/Home";
-import DashUser from "./components/DashUser";
-import Contact from "./components/Contact";
+import Title from "./components/Section/Title";
+import Home from "./views/Home";
+import DashUser from "./views/DashUser";
+import Contact from "./views/Contact";
+import ProductItem from "./components/Product/ProductItem";
 
 function App() {
   return (
@@ -36,17 +37,19 @@ function App() {
             </li>
           </div>
         </nav>
-        <Switch>
-          <Route path="/" exact>
-            <Home />
-          </Route>
-          <Route path="/user">
-            <DashUser />
-          </Route>
-          <Route path="/contact">
-            <Contact />
-          </Route>
-        </Switch>
+        <main className="container">
+          <Switch>
+            <Route path="/" exact>
+              <Home />
+            </Route>
+            <Route path="/user">
+              <DashUser />
+            </Route>
+            <Route path="/contact">
+              <Contact />
+            </Route>
+          </Switch>
+        </main>
       </div>
     </BrowserRouter>
   );

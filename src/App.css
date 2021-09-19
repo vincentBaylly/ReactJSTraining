@@ -1,11 +1,16 @@
 body {
-  width: 80%;
   margin: auto;
   font-family: "Grandstander", cursive;
 }
 
 h1 {
   text-align: center;
+}
+
+.container {
+  height: 100%;
+  /* Use padding on container instead of margin on logo */
+  padding-top: 30px;
 }
 
 .imgContainer {
@@ -63,4 +68,68 @@ button:hover {
   border-color: #da3535;
   color: #da3535;
   cursor: pointer;
+}
+
+.panel.panel-default {
+  border-top-width: 3px;
+}
+.panel {
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.14),
+    0 2px 2px 0 rgba(0, 0, 0, 0.098), 0 1px 5px 0 rgba(0, 0, 0, 0.084);
+  border: 0;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+.thumb96 {
+  width: 96px !important;
+  height: 96px !important;
+}
+.thumb48 {
+  width: 48px !important;
+  height: 48px !important;
+}
+.feed-activity-list .feed-element {
+  border-bottom: 1px solid #e7eaec;
+}
+.feed-element:first-child {
+  margin-top: 0;
+}
+.feed-element {
+  padding-bottom: 15px;
+}
+.feed-element,
+.feed-element .media {
+  margin-top: 15px;
+}
+.feed-element,
+.media-body {
+  overflow: hidden;
+}
+.feed-element > .pull-left {
+  margin-right: 10px;
+}
+.feed-element img.rounded-circle,
+.dropdown-messages-box img.rounded-circle {
+  width: 38px;
+  height: 38px;
+}
+.feed-element .well {
+  border: 1px solid #e7eaec;
+  box-shadow: none;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  padding: 10px 20px;
+  font-size: 11px;
+  line-height: 16px;
+}
+.feed-element .actions {
+  margin-top: 10px;
+}
+.feed-element .photos {
+  margin: 10px 0;
+}
+
+.disabled {
+  pointer-events: none;
+  cursor: default;
 }
