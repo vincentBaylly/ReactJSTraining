@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "your app key here",
@@ -17,6 +18,5 @@ const firebaseConfig = {
 initializeApp(firebaseConfig);
 
 // Get a reference to the database service
-const db = getDatabase();
-
-export default db;
+export const db = getDatabase();
+export const auth = getAuth();

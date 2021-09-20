@@ -6,14 +6,9 @@ function Contact() {
       <section id="contact" className="gray-bg padding-top-bottom">
         <div className="container bootstrap snippets bootdey">
           <div className="row">
-            <form
-              id="Highlighted-form"
-              className="col-sm-6 col-sm-offset-3"
-              method="post"
-              novalidate=""
-            >
+            <form id="Highlighted-form" className="col-sm-6 col-sm-offset-3">
               <div className="form-group">
-                <label className="control-label" for="contact-name">
+                <label className="control-label" htmlFor="contact-name">
                   Name
                 </label>
                 <div className="controls">
@@ -31,7 +26,7 @@ function Contact() {
               </div>
 
               <div className="form-group">
-                <label className="control-label" for="contact-mail">
+                <label className="control-label" htmlFor="contact-mail">
                   Email
                 </label>
                 <div className=" controls">
@@ -49,7 +44,7 @@ function Contact() {
                 </div>
               </div>
               <div className="form-group">
-                <label className="control-label" for="contact-message">
+                <label className="control-label" htmlFor="contact-message">
                   Message
                 </label>
                 <div className="controls">
