@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { signIn, signinWithFaceBook } from "../helper/auth";
+import { signUp } from "../helper/auth";
 
-function Login() {
+function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -13,31 +13,12 @@ function Login() {
     setPassword(e.target.value);
   };
 
-  const handleLogin = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    signIn(email, password)
+    signUp(email, password)
       .then(function (result) {
-        var user = result.user;
-        console.log(user);
-        // ...
-      })
-      .catch(function (error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.error(`${errorCode} ${errorMessage}`);
-      });
-  };
-
-  const handleFacebookLogin = (e) => {
-    e.preventDefault();
-    signinWithFaceBook()
-      .then(function (result) {
-        // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-        var token = result.credential.accessToken;
-        // The signed-in user info.
-        var user = result.user;
-        console.log(user);
+        //TODO Manage token
+        //console.log(result.user.accessToken);
         // ...
       })
       .catch(function (error) {
@@ -49,10 +30,10 @@ function Login() {
   };
 
   return (
-    <div className="col-md-9 col-lg-7 d-flex align-items-center">
+    <div className="col-md-6 col-lg-7 d-flex align-items-center">
       <div className="card-body p-4 p-lg-5 text-black">
         <form>
-          <h5 className="fw-normal mb-3 pb-3">Connectez-vous à votre compte</h5>
+          <h5 className="fw-normal mb-3 pb-3">Inscrivez-vous à notre site</h5>
 
           <div className="form-outline mb-4">
             <input
@@ -80,20 +61,24 @@ function Login() {
             </label>
           </div>
 
-          <div className="md-6 is-grouped">
+          <div className="form-outline mb-4">
+            <input
+              type="password"
+              id="form2Example27"
+              className="form-control form-control-lg"
+            />
+            <label className="form-label" htmlFor="form2Example27">
+              Confirmation de Mot de passe
+            </label>
+          </div>
+
+          <div className="pt-1 mb-4">
             <button
+              onClick={handleSubmit.bind(this)}
               className="btn btn-dark btn-lg btn-block"
-              onClick={handleLogin}
               type="button"
             >
-              Connexion
-            </button>
-            <button
-              onClick={handleFacebookLogin}
-              id="facebook-button"
-              className="btn btn-default btn-block btn-social btn-facebook pull-right"
-            >
-              <i className="fa fa-facebook"></i> Sign in with Facebook
+              Inscription
             </button>
           </div>
         </form>
@@ -102,4 +87,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default SignUp;
