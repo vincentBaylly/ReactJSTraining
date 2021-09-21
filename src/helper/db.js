@@ -1,8 +1,8 @@
-import firebase from "../firebase";
+import { db } from "../services/firebase";
 import { ref, child, get } from "firebase/database";
 
 export async function getProducts() {
-  const dbRef = ref(firebase);
+  const dbRef = ref(db);
   let products = [];
   return await get(child(dbRef, "product"))
     .then((snapshot) => {
